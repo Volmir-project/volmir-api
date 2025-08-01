@@ -3,8 +3,7 @@ from django.views.decorators.csrf import csrf_exempt
 from django.views.decorators.http import require_http_methods
 import json
 import hashlib
-import os
-from api.models.login.login_model import LoginModelRequest
+from api.pydantic_models.login.login_model import LoginModelRequest
 
 @csrf_exempt
 @require_http_methods(['POST'])
