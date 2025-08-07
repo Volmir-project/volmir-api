@@ -23,4 +23,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('auth/signup/', include('api.auth.signup.urls')),
     path('auth/login/', include('api.auth.login.urls')),
+    path('user_card_data/<str:user_id>/', include('api.user_card_data.urls')),
 ]
