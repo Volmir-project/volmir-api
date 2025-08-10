@@ -25,4 +25,5 @@ urlpatterns = [
     path('auth/login/', include('api.auth.login.urls')),
     path('user_card_data/<str:user_id>/', include('api.user_card_data.urls')),
     path('task/<str:user_id>/', include('api.task.add_task.urls')),
+    path('task/<str:user_id>/', include('api.task.all_user_tasks.urls')),
 ]
