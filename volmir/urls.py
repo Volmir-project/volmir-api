@@ -27,4 +27,6 @@ urlpatterns = [
     path('task/<str:user_id>/', include('api.task.add_task.urls')),
     path('task/<str:user_id>/', include('api.task.all_user_tasks.urls')),
     path('task/<str:task_id>/', include('api.task.delete_task.urls')),
+    path('task/<str:task_id>/', include('api.task.complete_task.urls')),
+    path('task/<str:task_id>/', include('api.task.not_completed_task.urls')),
 ]
