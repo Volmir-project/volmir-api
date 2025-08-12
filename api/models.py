@@ -24,3 +24,13 @@ class Task(models.Model):
 
     def __str__(self):
         return f"{self.task_title} - {self.user.username}"
+
+class Post(models.Model):
+    post_id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False, blank=False)
+    post_body = models.TextField()
+    post_date = models.DateTimeField(auto_now_add=True, blank=False)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='posts')
+    task = models.ForeignKey(Task, on_delete=models.CASCADE, related_name='posts')
+
+    def __str__(self):
+        return f"{self.post_body} - {self.user.username}"
