@@ -1,28 +1,15 @@
-version: '3.8'
-
 services:
   web:
-    build: .
+    build:
+      context: ../
+      dockerfile: docker-config/Dockerfile
     ports:
       - "8000:8000"
     volumes:
-      - .:/app
+      - ../:/app
     environment:
       - DEBUG=True
-      - DATABASE_URL=postgres://postgres:postgres@db:5432/django_db
-    depends_on:
-      - db
-
-  db:
-    image: postgres:13
-    environment:
-      POSTGRES_DB: django_db
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: postgres
-    volumes:
-      - postgres_data:/var/lib/postgresql/data
-    ports:
-      - "5432:5432"
+      - DATABASE=sqlite
 
 volumes:
-  postgres_data:
+  sqlite_data:
